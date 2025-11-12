@@ -6,8 +6,9 @@ from datetime import datetime, timedelta, timezone
 import threading
 import time
 
-CORS(app)
+# Create the Flask app FIRST
 app = Flask(__name__)
+CORS(app)
 OPENF1_BASE = "https://api.openf1.org/v1"
 
 # Initialize global variables to hold the latest live session data
@@ -197,7 +198,4 @@ def live_session_data_route(session_filter, driver_filter):
     })
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=int(os.environ.get("PORT", 5001)))
-
-
-
+    app.run(host='0.0.0.0', port=int(os.environ.get("PORT", 5002)))

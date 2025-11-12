@@ -13,7 +13,7 @@ A Flask-based API service for providing real-time Formula 1 data, including:
 
 ## 🚀 Features
 
-### `/f1info.json` (from `server.py`)
+### `http://localhost:5000/f1info.json` (from `server.py`)
 Returns upcoming race info including:
 - Next session (FP1, Quali, Race) & countdown
 - Circuit, weather, flags
@@ -21,12 +21,12 @@ Returns upcoming race info including:
 - Last race winner
 - Full 2025 calendar
 
-### `/position.json` (from `postion.py`)
+### `http://localhost:5001/position.json` (from `position.py`)
 Returns real-time `x, y` car coordinates using OpenF1 API.
 - Only works when session is live
 - Returns: `car_number`, `x`, `y`
 
-### `/live_session_data` (from `live_timing.py`)
+### `http://localhost:5002/live_session_data` (from `live_timing.py`)
 Returns live driver timing and team radio:
 - Driver Code, Gap, Position, Laps
 - Team radio messages (if available)
@@ -34,9 +34,9 @@ Returns live driver timing and team radio:
 
 Supports:
 ```
-/live_session_data              – All live data
-/live_session_data/qualifying  – Specific session (e.g., race, sprint)
-/live_session_data/race/VER    – Filter by driver code
+http://localhost:5002/live_session_data             – All live data
+http://localhost:5002/live_session_data/qualifying  – Specific session (e.g., race, sprint)
+http://localhost:5002/live_session_data/race/VER    – Filter by driver code
 ```
 
 ---
@@ -56,9 +56,12 @@ babel
 flask-cors
 ```
 
-Install with:
+Install with venv:
 
 ```bash
+cd /path/to/your/project
+python3 -m venv venv
+source venv/bin/activate
 pip install -r requirements.txt
 ```
 
